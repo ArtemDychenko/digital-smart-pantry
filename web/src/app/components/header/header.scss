@@ -1,0 +1,17 @@
+@use 'vars';
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: vars.get(vars.$padding, lg) vars.get(vars.$padding, xl);
+
+  p-button {
+    border: 1px solid !important;
+    padding: vars.get(vars.$padding, md) vars.get(vars.$padding, lg) !important;
+    border-color: vars.get(vars.$palette, black);
+    border-radius: 16px;
+    background-color: #f8f1eb;
+  }
+}

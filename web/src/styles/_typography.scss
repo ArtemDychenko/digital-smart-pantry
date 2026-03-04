@@ -1,0 +1,562 @@
+$text: (
+  xs: 0.75rem,
+  sm: 0.88rem,
+  base: 1rem,
+);
+
+$heading: (
+  h6: 1.12rem,
+  h5: 1.25rem,
+  h4: 1.5rem,
+  h3: 1.88rem,
+  h2: 2.25rem,
+  h1: 3rem,
+);
+
+@function font-size($size, $weight) {
+  @return map-get(map-get($text, $size), $weight);
+}
+
+@function heading-size($level, $weight) {
+  @return map-get(map-get($heading, $level), $weight);
+}
+
+@mixin font-text-xs-normal-400 {
+  // Text/xs/normal-400 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 133.33%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-text---xs---medium-500 {
+  // Text / xs / medium-500 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 133.33%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-text---xs---semibold-600 {
+  // Text / xs / semibold-600 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 133.33%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-text---xs---bold-700 {
+  // Text / xs / bold-700 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 133.33%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-text---xs---extrabold-800 {
+  // Text / xs / extrabold-800 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  font-size: 0.75rem;
+  line-height: 133.33%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-text---xs---black-900 {
+  // Text / xs / black-900 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 0.75rem;
+  line-height: 133.33%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-text---sm---normal-400 {
+  // Text / sm / normal-400 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 142.86%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-text---sm---medium-500 {
+  // Text / sm / medium-500 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 142.86%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-text---sm---semibold-600 {
+  // Text / sm / semibold-600 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 142.86%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-text---sm---bold-700 {
+  // Text / sm / bold-700 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 142.86%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-text---sm---extrabold-800 {
+  // Text / sm / extrabold-800 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  font-size: 0.875rem;
+  line-height: 142.86%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-text---sm---black-900 {
+  // Text / sm / black-900 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 0.875rem;
+  line-height: 142.86%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-text---base---normal-400 {
+  // Text / base / normal-400 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 150%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-text---base---medium-500 {
+  // Text / base / medium-500 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 150%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-text---base---semibold-600 {
+  // Text / base / semibold-600 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 150%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-text---base---bold-700 {
+  // Text / base / bold-700 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 150%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-text---base---extrabold-800 {
+  // Text / base / extrabold-800 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 150%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-text---base---black-900 {
+  // Text / base / black-900 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 1rem;
+  line-height: 150%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h6---normal-400 {
+  // Heading / h6 / normal-400 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 155.56%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h6---medium-500 {
+  // Heading / h6 / medium-500 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 155.56%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h6---semibold-600 {
+  // Heading / h6 / semibold-600 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 155.56%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h6---bold-700 {
+  // Heading / h6 / bold-700 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 155.56%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h6---extrabold-800 {
+  // Heading / h6 / extrabold-800 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  font-size: 1.125rem;
+  line-height: 155.56%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h6---black-900 {
+  // Heading / h6 / black-900 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 1.125rem;
+  line-height: 155.56%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h5---normal-400 {
+  // Heading / h5 / normal-400 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 140%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h5---medium-500 {
+  // Heading / h5 / medium-500 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 140%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h5---semibold-600 {
+  // Heading / h5 / semibold-600 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 140%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h5---bold-700 {
+  // Heading / h5 / bold-700 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 140%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h5---extrabold-800 {
+  // Heading / h5 / extrabold-800 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  line-height: 140%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h5---black-900 {
+  // Heading / h5 / black-900 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  line-height: 140%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h4---normal-400 {
+  // Heading / h4 / normal-400 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 133.33%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h4---medium-500 {
+  // Heading / h4 / medium-500 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 133.33%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h4---semibold-600 {
+  // Heading / h4 / semibold-600 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 133.33%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h4---bold-700 {
+  // Heading / h4 / bold-700 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 133.33%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h4---extrabold-800 {
+  // Heading / h4 / extrabold-800 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 133.33%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h4---black-900 {
+  // Heading / h4 / black-900 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  line-height: 133.33%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h3---normal-400 {
+  // Heading / h3 / normal-400 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1.875rem;
+  line-height: 120%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h3---medium-500 {
+  // Heading / h3 / medium-500 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 1.875rem;
+  line-height: 120%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h3---semibold-600 {
+  // Heading / h3 / semibold-600 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 1.875rem;
+  line-height: 120%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h3---bold-700 {
+  // Heading / h3 / bold-700 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1.875rem;
+  line-height: 120%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h3---extrabold-800 {
+  // Heading / h3 / extrabold-800 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  font-size: 1.875rem;
+  line-height: 120%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h3---black-900 {
+  // Heading / h3 / black-900 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 1.875rem;
+  line-height: 120%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h2---normal-400 {
+  // Heading / h2 / normal-400 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 2.25rem;
+  line-height: 111.11%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h2---medium-500 {
+  // Heading / h2 / medium-500 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 2.25rem;
+  line-height: 111.11%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h2---semibold-600 {
+  // Heading / h2 / semibold-600 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 2.25rem;
+  line-height: 111.11%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h2---bold-700 {
+  // Heading / h2 / bold-700 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 111.11%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h2---extrabold-800 {
+  // Heading / h2 / extrabold-800 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  font-size: 2.25rem;
+  line-height: 111.11%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h2---black-900 {
+  // Heading / h2 / black-900 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 2.25rem;
+  line-height: 111.11%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h1---normal-400 {
+  // Heading / h1 / normal-400 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 118.75%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h1---medium-500 {
+  // Heading / h1 / medium-500 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 118.75%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h1---semibold-600 {
+  // Heading / h1 / semibold-600 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 118.75%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h1---bold-700 {
+  // Heading / h1 / bold-700 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 118.75%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h1---extrabold-800 {
+  // Heading / h1 / extrabold-800 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+  line-height: 118.75%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
+
+@mixin font-heading---h1---black-900 {
+  // Heading / h1 / black-900 //
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 3rem;
+  line-height: 118.75%;
+  text-decoration: none;
+  letter-spacing: normal;
+}
