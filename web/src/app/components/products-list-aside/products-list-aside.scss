@@ -1,0 +1,42 @@
+@use 'vars';
+
+.products-list-aside {
+  &__header {
+    padding: vars.get(vars.$padding, sm) vars.get(vars.$padding, sm);
+    @include vars.font-heading---h2---normal-400();
+  }
+
+  &__loading,
+  &__empty {
+    padding: vars.get(vars.$padding, md);
+    opacity: 0.6;
+    font-style: italic;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: vars.get(vars.$padding, xs);
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: vars.get(vars.$padding, sm) vars.get(vars.$padding, md);
+    border-radius: vars.get(vars.$radius, md);
+    background-color: #f8f1eb;
+
+    &-name {
+      font-weight: 500;
+    }
+
+    &-qty {
+      font-weight: 700;
+      font-size: vars.get(vars.$text, lg);
+    }
+  }
+}

@@ -32,9 +32,10 @@
     &-input {
       width: 40%;
       border: 1px solid;
-      padding: vars.get(vars.$padding, md) vars.get(vars.$padding, lg);
+      padding: vars.get(vars.$padding, sm) vars.get(vars.$padding, lg);
       border-radius: vars.get(vars.$radius, lg);
       background-color: #f8f1eb;
+      font-size: vars.get(vars.$text, base);
     }
   }
 }

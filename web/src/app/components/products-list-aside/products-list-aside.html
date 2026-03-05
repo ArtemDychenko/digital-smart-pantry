@@ -1,0 +1,30 @@
+<p-drawer
+  [visible]="true"
+  (onHide)="onClose()"
+  [dismissible]="false"
+  position="right"
+  class="products-list-aside"
+>
+  <ng-template pTemplate="header">
+    <div class="products-list-aside__header">My Pantry</div>
+  </ng-template>
+
+  <ng-template pTemplate="content">
+    @if (loading()) {
+      <p class="products-list-aside__loading">Loading…</p>
+    } @else if (products().length === 0) {
+      <p class="products-list-aside__empty">
+        Your pantry is empty. Tell the assistant to add something!
+      </p>
+    } @else {
+      <ul class="products-list-aside__list">
+        @for (product of products(); track product.id) {
+          <li class="products-list-aside__item">
+            <span class="products-list-aside__item-name">{{ product.name }}</span>
+            <span class="products-list-aside__item-qty">{{ product.quantity }}</span>
+          </li>
+        }
+      </ul>
+    }
+  </ng-template>
+</p-drawer>

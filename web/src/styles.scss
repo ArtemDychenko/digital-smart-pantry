@@ -3,3 +3,42 @@
 body {
   background-color: #ffd3ac;
 }
+
+.p-button {
+  --p-button-outlined-primary-color: #000000;
+  --p-button-outlined-primary-border-color: #000000;
+  --p-button-outlined-primary-hover-color: #000000;
+  --p-button-outlined-primary-hover-background: #f8f1eb;
+  --p-button-outlined-primary-hover-border-color: #000000;
+  --p-button-outlined-primary-active-color: #000000;
+  --p-button-outlined-primary-active-background: #f1d0b0;
+  --p-button-outlined-primary-active-border-color: #000000;
+}
+
+.p-drawer {
+  width: 100% !important;
+  max-width: vars.$sidebarWidth;
+
+  &-close-button {
+    margin-right: vars.get(vars.$padding, xs);
+    border-radius: vars.get(vars.$radius, xl);
+
+    .p-icon {
+      width: 1.3rem;
+      height: 1rem;
+    }
+
+    &:hover {
+      background: vars.palette(blue-gray, 300);
+    }
+  }
+
+  &-content {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

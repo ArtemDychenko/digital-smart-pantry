@@ -1,3 +1,9 @@
 <div class="header">
-  <p-button [label]="'My Pantry'" [rounded]="true" size="large" />
+  <p-button
+    label="My Pantry"
+    severity="primary"
+    variant="outlined"
+    size="large"
+    (onClick)="onOpenProductsList()"
+  />
 </div>

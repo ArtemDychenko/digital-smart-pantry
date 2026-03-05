@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './assistant.html',
   styleUrl: './assistant.scss',
 })
-export class Assistant {}
+export class Assistant {
+  
+}
