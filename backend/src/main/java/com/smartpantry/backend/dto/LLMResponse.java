@@ -1,4 +1,4 @@
-package com.smartpantry.api.dto;
+package com.smartpantry.backend.dto;
 
 public record LLMResponse(
     String action,

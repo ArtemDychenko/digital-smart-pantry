@@ -1,4 +1,4 @@
-package com.smartpantry.api.model;
+package com.smartpantry.backend.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

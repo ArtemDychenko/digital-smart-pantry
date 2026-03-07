@@ -1,6 +1,6 @@
-package com.smartpantry.api.service;
+package com.smartpantry.backend.service;
 
-import com.smartpantry.api.dto.LLMResponse;
+import com.smartpantry.backend.dto.LLMResponse;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;
 
