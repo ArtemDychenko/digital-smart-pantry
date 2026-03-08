@@ -1,12 +1,10 @@
-import {Component, inject} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {LLMApi} from '@api/llm.api';
+import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { LLMApi } from '@api/llm.api';
 
 @Component({
   selector: 'app-assistant',
-  imports: [
-    FormsModule
-  ],
+  imports: [FormsModule],
   templateUrl: './assistant.html',
   styleUrl: './assistant.scss',
 })
@@ -21,10 +19,10 @@ export class Assistant {
 
     this.llmApi.command({ userPrompt: this.userPrompt }).subscribe({
       next: (response) => {
-      this.responseMessage = response.message;
-      this.userPrompt = '';
-    },
-      error: (err) => console.error('Error:', err)
+        this.responseMessage = response.message;
+        this.userPrompt = '';
+      },
+      error: (err) => console.error('Error:', err),
     });
   }
 }
