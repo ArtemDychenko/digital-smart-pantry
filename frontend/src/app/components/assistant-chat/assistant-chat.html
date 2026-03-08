@@ -1,5 +1,5 @@
-<div class="assistant-chat" [class.assistant-chat--initial]="initialState">
-  @if (initialState) {
+<div class="assistant-chat" [class.assistant-chat--initial]="initialState()">
+  @if (initialState()) {
     <div class="assistant-chat-header">
       <p class="assistant-chat-title">Smart</p>
       <p class="assistant-chat-title">pantry</p>
@@ -10,7 +10,7 @@
       placeholder="Hey 👋"
       [(ngModel)]="userPrompt"
       (keyup.enter)="sendPrompt()"
-      [disabled]="loading"
+      [disabled]="loading()"
       autocomplete="off"
     />
   } @else {
@@ -21,7 +21,7 @@
           <p class="assistant-chat-title">pantry</p>
         </div>
         <div class="assistant-chat__conversation-scroll-messages">
-          @for (message of chatHistory; track message.id) {
+          @for (message of chatHistory(); track message.id) {
             <app-assistant-chat-message [message]="message" />
           }
         </div>
@@ -32,7 +32,7 @@
         placeholder="Ask me anything about your pantry..."
         [(ngModel)]="userPrompt"
         (keyup.enter)="sendPrompt()"
-        [disabled]="loading"
+        [disabled]="loading()"
         autocomplete="off"
       />
     </div>
