@@ -1,0 +1,19 @@
+@use 'vars';
+
+.assistant-chat-message {
+  display: flex;
+  justify-content: flex-start;
+  margin: vars.get(vars.$padding, xs) 0;
+
+  &--user {
+    justify-content: flex-end;
+
+    p-card {
+      background-color: #d1e7dd;
+    }
+  }
+
+  &__card {
+    max-width: 60%;
+  }
+}

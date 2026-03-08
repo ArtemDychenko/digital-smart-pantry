@@ -4,12 +4,13 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: vars.get(vars.$padding, lg) vars.get(vars.$padding, xl);
+  padding: vars.get(vars.$padding, md) vars.get(vars.$padding, lg);
   justify-content: flex-end;
+  flex-shrink: 0;
 
   .p-button {
     border-radius: vars.get(vars.$radius, md);
-    padding: vars.get(vars.$padding, md) vars.get(vars.$padding, lg);
+    padding: vars.get(vars.$padding, lg) vars.get(vars.$padding, xl);
     background-color: #f8f1eb;
   }
 }

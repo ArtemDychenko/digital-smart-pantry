@@ -3,12 +3,13 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'assistant',
+    redirectTo: 'assistant-chat',
     pathMatch: 'full',
   },
   {
-    path: 'assistant',
-    loadComponent: () => import('@components/assistant/assistant').then((m) => m.Assistant),
+    path: 'assistant-chat',
+    loadComponent: () =>
+      import('@components/assistant-chat/assistant-chat').then((m) => m.AssistantChat),
   },
   {
     path: 'products-list',

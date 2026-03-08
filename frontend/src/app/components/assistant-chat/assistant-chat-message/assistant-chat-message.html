@@ -1,0 +1,7 @@
+<div
+  class="assistant-chat-message"
+  [class.assistant-chat-message--user]="message().userRole === UserRole.USER"
+  [class.assistant-chat-message--assistant]="message().userRole === UserRole.ASSISTANT"
+>
+  <p-card class="assistant-chat-message__card">{{ message().text }}</p-card>
+</div>

@@ -1,0 +1,70 @@
+@use 'vars';
+
+.assistant-chat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(95vh - vars.$headerHeight);
+  flex: 1;
+  // min-height: 0;
+  width: 70%;
+  margin: 0 auto;
+
+  &--initial {
+    justify-content: center;
+    padding-bottom: 15vh;
+  }
+
+  &-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 0.69;
+    margin-bottom: vars.get(vars.$padding, xxl);
+  }
+
+  &-title {
+    font-weight: 600;
+    margin: 0;
+    font-size: 5rem;
+  }
+
+  &__conversation {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+
+    &-scroll {
+      flex: 1;
+      overflow-y: auto;
+      min-height: 0;
+
+      &-messages {
+        padding: vars.get(vars.$padding, sm) 0;
+      }
+    }
+
+    &-input {
+      width: 40%;
+      border: 1px solid;
+      padding: vars.get(vars.$padding, sm) vars.get(vars.$padding, lg);
+      border-radius: vars.get(vars.$radius, lg);
+      background-color: #f8f1eb;
+      font-size: vars.get(vars.$text, base);
+      margin: vars.get(vars.$padding, sm) 0;
+      flex-shrink: 0;
+      align-self: center;
+    }
+  }
+
+  &__initial-input {
+    width: 40%;
+    border: 1px solid;
+    padding: vars.get(vars.$padding, sm) vars.get(vars.$padding, lg);
+    border-radius: vars.get(vars.$radius, lg);
+    background-color: #f8f1eb;
+    font-size: vars.get(vars.$text, base);
+  }
+}

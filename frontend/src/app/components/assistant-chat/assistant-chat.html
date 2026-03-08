@@ -1,0 +1,40 @@
+<div class="assistant-chat" [class.assistant-chat--initial]="initialState">
+  @if (initialState) {
+    <div class="assistant-chat-header">
+      <p class="assistant-chat-title">Smart</p>
+      <p class="assistant-chat-title">pantry</p>
+    </div>
+    <input
+      type="text"
+      class="assistant-chat__initial-input"
+      placeholder="Hey 👋"
+      [(ngModel)]="userPrompt"
+      (keyup.enter)="sendPrompt()"
+      [disabled]="loading"
+      autocomplete="off"
+    />
+  } @else {
+    <div class="assistant-chat__conversation">
+      <div class="assistant-chat__conversation-scroll">
+        <div class="assistant-chat-header">
+          <p class="assistant-chat-title">Smart</p>
+          <p class="assistant-chat-title">pantry</p>
+        </div>
+        <div class="assistant-chat__conversation-scroll-messages">
+          @for (message of chatHistory; track message.id) {
+            <app-assistant-chat-message [message]="message" />
+          }
+        </div>
+      </div>
+      <input
+        class="assistant-chat__conversation-input"
+        type="text"
+        placeholder="Ask me anything about your pantry..."
+        [(ngModel)]="userPrompt"
+        (keyup.enter)="sendPrompt()"
+        [disabled]="loading"
+        autocomplete="off"
+      />
+    </div>
+  }
+</div>
