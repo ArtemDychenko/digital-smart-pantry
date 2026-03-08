@@ -27,7 +27,7 @@ export class ProductsListAside implements OnInit {
         this.products.set(result.result);
         this.loading.set(false);
       },
-      error: () => this.loading.set(false),
+      error: (err) =>  console.error('Error:', err)
     });
   }
 

@@ -1,5 +1,5 @@
 export interface LLMCommandRequest {
-  prompt: string;
+  userPrompt: string;
 }
 
 export interface LLMCommandResponse {

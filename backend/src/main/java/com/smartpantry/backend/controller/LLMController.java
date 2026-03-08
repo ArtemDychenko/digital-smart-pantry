@@ -1,5 +1,7 @@
 package com.smartpantry.backend.controller;
 
+import com.smartpantry.backend.dto.LLMRequest;
+import com.smartpantry.backend.dto.LLMResponse;
 import com.smartpantry.backend.service.LLMService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -10,8 +12,9 @@ import org.springframework.web.bind.annotation.*;
 public class LLMController {
     private final LLMService llmService;
 
-    @GetMapping("/command")
-    public void command(@RequestBody String userPrompt) {
-         System.out.println(llmService.process(userPrompt));
+    @PostMapping("/command")
+    public LLMResponse command(@RequestBody LLMRequest userPrompt) {
+        String response = llmService.process(userPrompt.userPrompt());
+        return new LLMResponse(response);
     }
 }

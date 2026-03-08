@@ -4,7 +4,7 @@
     <p class="assistant__header-title">pantry</p>
   </div>
   <div class="assistant__body">
-    <p class="assistant__body-message"></p>
-    <input class="assistant__body-input" placeholder="Hey 👋" />
+    <p class="assistant__body-message">{{ responseMessage }}</p>
+    <input type="text" class="assistant__body-input" placeholder="Hey 👋" [(ngModel)]="userPrompt" (keyup.enter)="sendPrompt()" />
   </div>
 </div>
