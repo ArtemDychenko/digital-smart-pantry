@@ -10,21 +10,65 @@
   </ng-template>
 
   <ng-template pTemplate="content">
-    @if (loading()) {
-      <p class="products-list-aside__loading">Loading…</p>
-    } @else if (products().length === 0) {
-      <p class="products-list-aside__empty">
-        Your pantry is empty. Tell the assistant to add something!
-      </p>
-    } @else {
-      <ul class="products-list-aside__list">
-        @for (product of products(); track product.id) {
-          <li class="products-list-aside__item">
-            <span class="products-list-aside__item-name">{{ product.name }}</span>
-            <span class="products-list-aside__item-qty">{{ product.quantity }}</span>
-          </li>
-        }
-      </ul>
-    }
+    <div class="custom-content-wrapper">
+      @if (!addingNewItem()) {
+        <p-button
+          icon="pi pi-plus"
+          [rounded]="true"
+          severity="info"
+          (onClick)="addingNewItem.set(true)"
+        />
+      }
+      @if (addingNewItem()) {
+        <app-products-list-aside-form
+          (save)="onProductSave($event)"
+          (cancel)="addingNewItem.set(false)"
+        />
+      }
+
+      @if (loading()) {
+        <p class="products-list-aside__loading">Loading…</p>
+      } @else if (products().length === 0) {
+        <p class="products-list-aside__empty">
+          Your pantry is empty. Tell the assistant to add something!
+        </p>
+      } @else {
+        <ul class="products-list-aside__list">
+          @for (product of products(); track product.id) {
+            <li class="products-list-aside__list-row">
+              @if (editingItemId() === product.id) {
+                <app-products-list-aside-form
+                  [product]="product"
+                  (save)="onProductSave($event)"
+                  (cancel)="editingItemId.set(null)"
+                />
+              } @else {
+                <div class="products-list-aside__list-item">
+                  <span class="products-list-aside__list-item-name">{{ product.name }}</span>
+                  <span class="products-list-aside__list-item-qty">{{ product.quantity }}</span>
+                </div>
+              }
+              @if (editingItemId() !== product.id && !addingNewItem()) {
+                <p-button
+                  [class.custom-content-wrapper-button]="addingNewItem()"
+                  icon="pi pi-pencil"
+                  [rounded]="true"
+                  severity="secondary"
+                  (onClick)="onChangeItem(product.id)"
+                />
+
+                <p-button
+                  [class.custom-content-wrapper-button]="addingNewItem()"
+                  icon="pi pi-trash"
+                  [rounded]="true"
+                  severity="danger"
+                  (onClick)="onRemoveItem(product.id)"
+                />
+              }
+            </li>
+          }
+        </ul>
+      }
+    </div>
   </ng-template>
 </p-drawer>

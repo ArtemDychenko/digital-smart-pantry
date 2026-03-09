@@ -1,0 +1,29 @@
+<div class="products-list-aside-form">
+  <input
+    class="products-list-aside-form__name"
+    id="name"
+    pInputText
+    fluid
+    placeholder="e.g. tomatoes"
+    [formControl]="productForm.controls.name"
+  />
+
+  <p-inputnumber
+    class="products-list-aside-form__quantity"
+    [inputStyle]="{ 'border-radius': '32px' }"
+    id="quantity"
+    fluid
+    [formControl]="productForm.controls.quantity"
+  />
+
+  <div class="products-list-aside-form__buttons-wrapper">
+    <p-button
+      icon="pi pi-check"
+      severity="info"
+      [rounded]="true"
+      [disabled]="productForm.invalid"
+      (onClick)="onSaveItem()"
+    />
+    <p-button icon="pi pi-times" severity="danger" [rounded]="true" (onClick)="onCancel()" />
+  </div>
+</div>

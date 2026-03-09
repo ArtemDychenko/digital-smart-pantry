@@ -1,0 +1,17 @@
+@use 'vars';
+
+.products-list-aside-form {
+  display: grid;
+  grid-template-columns: 4fr 1fr auto;
+  column-gap: vars.get(vars.$gap, xs);
+
+  .p-inputtext {
+    border-radius: vars.get(vars.$radius, lg);
+  }
+
+  &__buttons-wrapper {
+    display: flex;
+    align-items: center;
+    gap: vars.get(vars.$gap, xs);
+  }
+}

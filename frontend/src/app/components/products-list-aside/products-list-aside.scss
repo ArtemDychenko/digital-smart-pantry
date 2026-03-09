@@ -6,6 +6,16 @@
     @include vars.font-heading---h2---medium-500();
   }
 
+  .custom-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: vars.get(vars.$padding, xs);
+
+    &-button {
+      visibility: collapse;
+    }
+  }
+
   &__loading,
   &__empty {
     padding: vars.get(vars.$padding, md);
@@ -20,23 +30,38 @@
     display: flex;
     flex-direction: column;
     gap: vars.get(vars.$padding, xs);
-  }
 
-  &__item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: vars.get(vars.$padding, sm) vars.get(vars.$padding, md);
-    border-radius: vars.get(vars.$radius, md);
-    background-color: #f8f1eb;
+    &-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: vars.get(vars.$gap, xs);
 
-    &-name {
-      font-weight: 500;
+      > .products-list-aside__list-item {
+        flex: 1 1 auto;
+      }
     }
 
-    &-qty {
-      font-weight: 700;
-      font-size: vars.get(vars.$text, lg);
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: vars.get(vars.$padding, xs) vars.get(vars.$padding, md);
+      border-radius: vars.get(vars.$radius, md);
+      background-color: #f8f1eb;
+
+      &-name {
+        font-weight: 500;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      &-qty {
+        font-weight: 700;
+        font-size: vars.get(vars.$text, lg);
+        margin-left: vars.get(vars.$gap, sm);
+      }
     }
   }
 }
