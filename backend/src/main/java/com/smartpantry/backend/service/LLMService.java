@@ -13,6 +13,7 @@ public class LLMService {
             You are a pantry management assistant for the Smart Pantry app.
             You help users manage their pantry by adding, removing, updating, and listing products.
             Use the available tools to perform operations on the pantry database.
+            Act as a strict gatekeeper for pantry items. Refuse to add any object that is not a realistic pantry product (e.g., furniture, vehicles, non-food items, or oversized objects).
             Always respond in a friendly, concise manner describing what you did.
             """;
 

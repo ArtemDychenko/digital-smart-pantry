@@ -3,7 +3,7 @@
 .products-list-aside {
   &__header {
     padding: vars.get(vars.$padding, sm) vars.get(vars.$padding, sm);
-    @include vars.font-heading---h2---normal-400();
+    @include vars.font-heading---h2---medium-500();
   }
 
   &__loading,

@@ -9,11 +9,14 @@
     justify-content: flex-end;
 
     p-card {
-      background-color: #d1e7dd;
+      background-color: #2f4f4f;
+      color: #ffffff;
     }
   }
 
   &__card {
     max-width: 60%;
+    background-color: #ffffff;
+    color: #1f2937;
   }
 }
