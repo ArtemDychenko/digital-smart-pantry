@@ -18,7 +18,7 @@ export class ProductsListAsideFormBuilder {
       name: this.#form.control<string>(product?.name ?? '', [
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(64),
+        Validators.maxLength(32),
       ]),
       quantity: this.#form.control<number>(product?.quantity ?? 0, Validators.required),
     });

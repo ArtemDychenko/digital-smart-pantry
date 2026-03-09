@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  effect,
+  ElementRef,
+  inject,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LLMApi } from '@api/llm.api';
 import { AssistantChatMessage } from '@components/assistant-chat/assistant-chat-message/assistant-chat-message';
@@ -15,11 +23,28 @@ import { UserRole } from '@models/user-role';
 export class AssistantChat {
   private readonly llmApi = inject(LLMApi);
   private nextId: number = 1;
+  private readonly scrollContainer = viewChild<ElementRef<HTMLDivElement>>('scrollContainer');
 
   initialState = signal(true);
   chatHistory = signal<ChatMessage[]>([]);
   userPrompt: string = '';
   loading = signal(false);
+
+  constructor() {
+    effect(() => {
+      this.chatHistory();
+      this.scrollToBottom();
+    });
+  }
+
+  private scrollToBottom(): void {
+    setTimeout(() => {
+      const el = this.scrollContainer()?.nativeElement;
+      if (el) {
+        el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' });
+      }
+    });
+  }
 
   sendPrompt(): void {
     const text = this.userPrompt.trim();
