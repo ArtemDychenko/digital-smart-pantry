@@ -4,7 +4,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: vars.get(vars.$padding, md) vars.get(vars.$padding, lg);
+  height: vars.$headerHeight;
+  padding: vars.get(vars.$padding, 0) vars.get(vars.$padding, sm);
   justify-content: space-between;
   flex-shrink: 0;
 

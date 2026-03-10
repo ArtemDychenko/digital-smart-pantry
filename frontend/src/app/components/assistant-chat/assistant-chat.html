@@ -1,8 +1,8 @@
 <div class="assistant-chat" [class.assistant-chat--initial]="initialState()">
   @if (initialState()) {
-    <div class="assistant-chat-header">
-      <p class="assistant-chat-title">Smart</p>
-      <p class="assistant-chat-title">pantry</p>
+    <div class="assistant-chat__initial-logo">
+      <p class="assistant-chat__initial-title">Smart</p>
+      <p class="assistant-chat__initial-title">pantry</p>
     </div>
     <input
       type="text"
@@ -16,7 +16,7 @@
   } @else {
     <div class="assistant-chat__conversation">
       <div class="assistant-chat__conversation-scroll" #scrollContainer>
-        <div class="assistant-chat-header">
+        <div class="assistant-chat-logo">
           <p class="assistant-chat-title">Smart</p>
           <p class="assistant-chat-title">pantry</p>
         </div>

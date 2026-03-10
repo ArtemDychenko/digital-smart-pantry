@@ -3,6 +3,20 @@
 @use 'typography';
 @use 'sass:map';
 
+$breakpoint-mobile: 768px;
+
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: ($breakpoint-mobile + 1)) {
+    @content;
+  }
+}
+
 @mixin box-shadow {
   box-shadow:
     0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132),

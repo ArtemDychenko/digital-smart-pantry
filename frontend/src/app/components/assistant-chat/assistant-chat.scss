@@ -4,22 +4,46 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: calc(95vh - vars.$headerHeight);
+  height: calc(100dvh - vars.$headerHeight);
   flex: 1;
   width: 70%;
   margin: 0 auto;
+
+  @include vars.mobile {
+    width: 100%;
+  }
 
   &--initial {
     justify-content: center;
     padding-bottom: 15vh;
   }
 
-  &-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    line-height: 0.69;
-    margin-bottom: vars.get(vars.$padding, xxl);
+  &__initial {
+    &-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 0.69;
+      margin-bottom: vars.get(vars.$padding, xxl);
+    }
+
+    &-title {
+      font-weight: 600;
+      margin: 0;
+      font-size: 5rem;
+    }
+  }
+
+  &-logo {
+    display: none;
+
+    @include vars.desktop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 0.69;
+      margin-bottom: vars.get(vars.$padding, xxl);
+    }
   }
 
   &-title {
@@ -42,6 +66,10 @@
 
       &-messages {
         padding: vars.get(vars.$padding, sm) 0;
+
+        @include vars.mobile {
+          padding: vars.get(vars.$padding, sm) vars.get(vars.$padding, md);
+        }
       }
     }
 
@@ -49,6 +77,10 @@
       display: flex;
       justify-content: center;
       gap: vars.get(vars.$padding, sm);
+
+      @include vars.mobile {
+        padding: 0 vars.get(vars.$padding, md);
+      }
 
       p-button {
         align-content: center;
@@ -72,6 +104,9 @@
         margin: vars.get(vars.$padding, sm) 0;
         flex-shrink: 0;
         align-self: center;
+        @include vars.mobile {
+          width: 80%;
+        }
       }
     }
   }
@@ -83,5 +118,10 @@
     border-radius: vars.get(vars.$radius, lg);
     background-color: #ffffff;
     font-size: vars.get(vars.$text, base);
+    @include vars.mobile {
+      //TO-DO logo size
+
+      width: 80%;
+    }
   }
 }

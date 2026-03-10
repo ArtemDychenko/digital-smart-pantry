@@ -2,6 +2,13 @@
 
 body {
   background-color: #ffedd5;
+  margin: 0;
+}
+
+.p-toast {
+  @include vars.mobile {
+    max-width: 300px !important;
+  }
 }
 
 .p-button {
