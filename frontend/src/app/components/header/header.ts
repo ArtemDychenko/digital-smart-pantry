@@ -1,6 +1,7 @@
 import { Component, inject, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { Button } from 'primeng/button';
+import { ConversationService } from '../../services/conversation.service';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,11 @@ import { Button } from 'primeng/button';
 })
 export class Header {
   readonly router = inject(Router);
+  private readonly conversationService = inject(ConversationService);
+
+  onNewChat(): void {
+    this.conversationService.startNewChat();
+  }
 
   onOpenProductsList() {
     this.router.navigate([{ outlets: { sidebar: ['products-list'] } }], {

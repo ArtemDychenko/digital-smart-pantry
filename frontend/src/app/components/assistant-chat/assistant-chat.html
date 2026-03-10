@@ -26,15 +26,17 @@
           }
         </div>
       </div>
-      <input
-        class="assistant-chat__conversation-input"
-        type="text"
-        placeholder="Ask me anything about your pantry..."
-        [(ngModel)]="userPrompt"
-        (keyup.enter)="sendPrompt()"
-        [disabled]="loading()"
-        autocomplete="off"
-      />
+      <div class="assistant-chat__conversation-wrapper">
+        <input
+          type="text"
+          placeholder="Ask me anything about your pantry..."
+          [(ngModel)]="userPrompt"
+          (keyup.enter)="sendPrompt()"
+          [disabled]="loading()"
+          autocomplete="off"
+        />
+        <p-button icon="pi pi-send" variant="outlined" (onClick)="sendPrompt()" />
+      </div>
     </div>
   }
 </div>

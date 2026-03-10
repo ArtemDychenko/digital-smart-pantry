@@ -10,19 +10,21 @@ import {
 import { FormsModule } from '@angular/forms';
 import { LLMApi } from '@api/llm.api';
 import { AssistantChatMessage } from '@components/assistant-chat/assistant-chat-message/assistant-chat-message';
-import { ChatMessage } from '@models/chat-message';
+import { ChatMessage, createChatMessage, resetChatMessageId } from '@models/chat-message';
 import { UserRole } from '@models/user-role';
+import { ConversationService } from '../../services/conversation.service';
+import { Button } from 'primeng/button';
 
 @Component({
   selector: 'app-assistant-chat',
-  imports: [FormsModule, AssistantChatMessage],
+  imports: [FormsModule, AssistantChatMessage, Button],
   templateUrl: './assistant-chat.html',
   styleUrl: './assistant-chat.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AssistantChat {
   private readonly llmApi = inject(LLMApi);
-  private nextId: number = 1;
+  private readonly conversationService = inject(ConversationService);
   private readonly scrollContainer = viewChild<ElementRef<HTMLDivElement>>('scrollContainer');
 
   initialState = signal(true);
@@ -34,6 +36,14 @@ export class AssistantChat {
     effect(() => {
       this.chatHistory();
       this.scrollToBottom();
+    });
+
+    effect(() => {
+      this.conversationService.conversationId();
+      this.chatHistory.set([]);
+      this.initialState.set(true);
+      this.userPrompt = '';
+      resetChatMessageId();
     });
   }
 
@@ -53,15 +63,7 @@ export class AssistantChat {
     this.initialState.set(false);
     this.loading.set(true);
 
-    this.chatHistory.update((history) => [
-      ...history,
-      {
-        id: this.nextId++,
-        text,
-        date: new Date(),
-        userRole: UserRole.USER,
-      },
-    ]);
+    this.chatHistory.update((history) => [...history, createChatMessage(text, UserRole.USER)]);
 
     this.userPrompt = '';
 
@@ -69,12 +71,7 @@ export class AssistantChat {
       next: (response) => {
         this.chatHistory.update((history) => [
           ...history,
-          {
-            id: this.nextId++,
-            text: response.message,
-            date: new Date(),
-            userRole: UserRole.ASSISTANT,
-          },
+          createChatMessage(response.message, UserRole.ASSISTANT),
         ]);
         this.loading.set(false);
       },

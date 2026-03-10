@@ -6,3 +6,13 @@ export interface ChatMessage {
   date: Date;
   userRole: UserRole;
 }
+
+let nextId = 1;
+
+export function createChatMessage(text: string, userRole: UserRole): ChatMessage {
+  return { id: nextId++, text, date: new Date(), userRole };
+}
+
+export function resetChatMessageId(): void {
+  nextId = 1;
+}

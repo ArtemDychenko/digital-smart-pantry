@@ -43,10 +43,11 @@ public class LLMService {
         this.pantryTools = pantryTools;
     }
 
-    public String process(String userPrompt) {
+    public String process(String userPrompt, String conversationId) {
         return chatClient
                 .prompt()
                 .user(userPrompt)
+                .advisors(a -> a.param(ChatMemory.CONVERSATION_ID, conversationId))
                 .tools(pantryTools)
                 .call()
                 .content();

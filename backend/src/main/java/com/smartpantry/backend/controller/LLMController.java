@@ -13,8 +13,9 @@ public class LLMController {
     private final LLMService llmService;
 
     @PostMapping("/command")
-    public LLMResponse command(@RequestBody LLMRequest userPrompt) {
-        String response = llmService.process(userPrompt.userPrompt());
+    public LLMResponse command(@RequestBody LLMRequest userPrompt,
+                               @CookieValue(name = "conversation-id") String conversationId) {
+        String response = llmService.process(userPrompt.userPrompt(), conversationId);
         return new LLMResponse(response);
     }
 }

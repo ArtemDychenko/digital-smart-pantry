@@ -45,16 +45,34 @@
       }
     }
 
-    &-input {
-      width: 40%;
-      border: 1px solid;
-      padding: vars.get(vars.$padding, sm) vars.get(vars.$padding, lg);
-      border-radius: vars.get(vars.$radius, lg);
-      background-color: #ffffff;
-      font-size: vars.get(vars.$text, base);
-      margin: vars.get(vars.$padding, sm) 0;
-      flex-shrink: 0;
-      align-self: center;
+    &-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: vars.get(vars.$padding, sm);
+
+      p-button {
+        align-content: center;
+        width: 4rem;
+        padding: vars.get(vars.$padding, sm) 0;
+
+        ::ng-deep .p-button {
+          width: 100%;
+          height: 100%;
+          border-radius: vars.get(vars.$radius, lg);
+        }
+      }
+
+      input {
+        width: 40%;
+        border: 1px solid;
+        padding: vars.get(vars.$padding, sm) vars.get(vars.$padding, lg);
+        border-radius: vars.get(vars.$radius, lg);
+        background-color: #ffffff;
+        font-size: vars.get(vars.$text, base);
+        margin: vars.get(vars.$padding, sm) 0;
+        flex-shrink: 0;
+        align-self: center;
+      }
     }
   }
 
