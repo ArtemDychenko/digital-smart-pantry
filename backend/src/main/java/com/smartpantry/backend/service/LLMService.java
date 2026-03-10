@@ -1,7 +1,15 @@
 package com.smartpantry.backend.service;
 
 import org.springframework.ai.chat.client.ChatClient;
+ import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
+import org.springframework.ai.chat.memory.ChatMemory;
+import org.springframework.ai.chat.memory.ChatMemoryRepository;
+import org.springframework.ai.chat.memory.MessageWindowChatMemory;
+import org.springframework.ai.chat.memory.repository.jdbc.JdbcChatMemoryRepository;
+import org.springframework.ai.chat.memory.repository.jdbc.PostgresChatMemoryRepositoryDialect;
 import org.springframework.stereotype.Service;
+
+import javax.sql.DataSource;
 
 @Service
 public class LLMService {
@@ -17,9 +25,20 @@ public class LLMService {
             Always respond in a friendly, concise manner describing what you did.
             """;
 
-    public LLMService(ChatClient.Builder chatClientBuilder, PantryTools pantryTools) {
+    public LLMService(ChatClient.Builder chatClientBuilder, PantryTools pantryTools, DataSource dataSource) {
+        ChatMemoryRepository chatMemoryRepository = JdbcChatMemoryRepository.builder()
+                .dataSource(dataSource)
+                .dialect(new PostgresChatMemoryRepositoryDialect())
+                .build();
+
+        ChatMemory chatMemory = MessageWindowChatMemory.builder()
+                .chatMemoryRepository(chatMemoryRepository)
+                .maxMessages(15)
+                .build();
+
         this.chatClient = chatClientBuilder
                 .defaultSystem(SYSTEM_PROMPT)
+                .defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).build())
                 .build();
         this.pantryTools = pantryTools;
     }
