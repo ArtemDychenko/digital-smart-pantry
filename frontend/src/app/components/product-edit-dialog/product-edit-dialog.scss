@@ -1,0 +1,14 @@
+@use 'vars';
+
+.product-edit-dialog__form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: vars.get(vars.$gap, sm) vars.get(vars.$gap, md);
+  padding-top: vars.get(vars.$padding, sm);
+
+  label {
+    font-weight: 500;
+    white-space: nowrap;
+  }
+}

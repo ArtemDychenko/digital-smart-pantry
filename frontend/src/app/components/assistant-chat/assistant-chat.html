@@ -1,4 +1,11 @@
 <div class="assistant-chat" [class.assistant-chat--initial]="initialState()">
+  <app-product-edit-dialog
+    [visible]="editDialogVisible()"
+    [productName]="editDialogProductName()"
+    [productQuantity]="editDialogProductQuantity()"
+    (accepted)="onEditAccepted($event)"
+    (close)="editDialogVisible.set(false)"
+  />
   @if (initialState()) {
     <div class="assistant-chat__initial-logo">
       <p class="assistant-chat__initial-title">Smart</p>

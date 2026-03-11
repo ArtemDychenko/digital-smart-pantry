@@ -1,0 +1,41 @@
+<p-dialog
+  header="Edit product"
+  [visible]="visible()"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  styleClass="product-edit-dialog"
+  (onHide)="onCancel()"
+>
+  <form [formGroup]="form" class="product-edit-dialog__form">
+    <label for="edit-name">Name</label>
+    <input
+      id="edit-name"
+      pInputText
+      fluid
+      formControlName="name"
+      placeholder="Product name"
+      autocomplete="off"
+    />
+
+    <label for="edit-quantity">Quantity</label>
+    <p-inputnumber id="edit-quantity" fluid formControlName="quantity" [min]="0" />
+  </form>
+
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-check"
+      label="Accept"
+      severity="info"
+      [disabled]="form.invalid"
+      (onClick)="onAccept()"
+    />
+    <p-button
+      icon="pi pi-times"
+      label="Cancel"
+      severity="danger"
+      variant="outlined"
+      (onClick)="onCancel()"
+    />
+  </ng-template>
+</p-dialog>

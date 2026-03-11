@@ -2,13 +2,9 @@ export interface LLMCommandRequest {
   userPrompt: string;
 }
 
-export interface LLMCommandResponse {
-  message: string;
-  item?: LLMCommandItem;
-}
-
-export interface LLMCommandItem {
-  id: number;
-  name: string;
-  quantity: number;
+export interface LLMStreamEvent {
+  type: 'working' | 'complete' | 'error';
+  status?: string;
+  message?: string;
+  a2uiMessages?: any[];
 }

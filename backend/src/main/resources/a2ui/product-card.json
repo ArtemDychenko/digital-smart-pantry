@@ -1,0 +1,126 @@
+[
+  {
+    "id": "root",
+    "component": {
+      "Card": {
+        "child": "productColumn"
+      }
+    }
+  },
+  {
+    "id": "productColumn",
+    "component": {
+      "Column": {
+        "children": {
+          "explicitList": [
+            "productNameText",
+            "productQuantityText",
+            "buttonRow"
+          ]
+        },
+        "alignment": "start",
+        "distribution": "start"
+      }
+    }
+  },
+  {
+    "id": "productNameText",
+    "component": {
+      "Text": {
+        "text": {
+          "path": "/product/name"
+        },
+        "usageHint": "h3"
+      }
+    }
+  },
+  {
+    "id": "productQuantityText",
+    "component": {
+      "Text": {
+        "text": {
+          "path": "/product/quantity"
+        },
+        "usageHint": "body"
+      }
+    }
+  },
+  {
+    "id": "buttonRow",
+    "component": {
+      "Row": {
+        "children": {
+          "explicitList": ["editButton", "deleteButton"]
+        },
+        "distribution": "start",
+        "alignment": "center"
+      }
+    }
+  },
+  {
+    "id": "editButton",
+    "component": {
+      "Button": {
+        "child": "editButtonText",
+        "primary": true,
+        "action": {
+          "name": "editProduct",
+          "context": [
+            {
+              "key": "productName",
+              "value": {
+                "path": "/product/name"
+              }
+            },
+            {
+              "key": "productQuantity",
+              "value": {
+                "path": "/product/quantityRaw"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "editButtonText",
+    "component": {
+      "Text": {
+        "text": {
+          "literalString": "Edit"
+        }
+      }
+    }
+  },
+  {
+    "id": "deleteButton",
+    "component": {
+      "Button": {
+        "child": "deleteButtonText",
+        "primary": false,
+        "action": {
+          "name": "deleteProduct",
+          "context": [
+            {
+              "key": "productName",
+              "value": {
+                "path": "/product/name"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "deleteButtonText",
+    "component": {
+      "Text": {
+        "text": {
+          "literalString": "Delete"
+        }
+      }
+    }
+  }
+]

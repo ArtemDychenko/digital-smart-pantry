@@ -22,4 +22,8 @@
       max-width: 80%;
     }
   }
+
+  &__a2ui {
+    margin-top: vars.get(vars.$padding, sm);
+  }
 }

@@ -25,6 +25,7 @@ public class PantryTools {
             Product product = existing.get();
             product.setQuantity(product.getQuantity() + quantity);
             productRepository.save(product);
+            PantryToolContext.recordAction("update", product.getName(), product.getQuantity());
             return "Updated " + product.getName() + ", new quantity: " + product.getQuantity();
         }
         Product product = Product.builder()
@@ -32,6 +33,7 @@ public class PantryTools {
                 .quantity(quantity)
                 .build();
         productRepository.save(product);
+        PantryToolContext.recordAction("add", name, quantity);
         return "Added " + name + " with quantity " + quantity;
     }
 
@@ -43,6 +45,7 @@ public class PantryTools {
             Product product = existing.get();
             product.setQuantity(quantity);
             productRepository.save(product);
+            PantryToolContext.recordAction("update", product.getName(), quantity);
             return "Updated " + product.getName() + " to quantity " + quantity;
         }
         return "Product " + name + " not found in the pantry.";
@@ -63,6 +66,7 @@ public class PantryTools {
         Optional<Product> existing = productRepository.findByNameIgnoreCase(name);
         if (existing.isPresent()) {
             Product product = existing.get();
+            PantryToolContext.recordAction("get", product.getName(), product.getQuantity());
             return product.getName() + ": " + product.getQuantity();
         }
         return "Product " + name + " not found in the pantry.";

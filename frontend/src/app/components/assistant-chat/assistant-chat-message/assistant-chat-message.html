@@ -3,5 +3,12 @@
   [class.assistant-chat-message--user]="message().userRole === UserRole.USER"
   [class.assistant-chat-message--assistant]="message().userRole === UserRole.ASSISTANT"
 >
-  <p-card class="assistant-chat-message__card">{{ message().text }}</p-card>
+  <p-card class="assistant-chat-message__card">
+    {{ message().text }}
+    @for (entry of ownSurfaces; track entry[0]) {
+      <div class="assistant-chat-message__a2ui">
+        <a2ui-surface [surfaceId]="entry[0]" [surface]="entry[1]" />
+      </div>
+    }
+  </p-card>
 </div>
