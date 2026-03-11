@@ -17,9 +17,7 @@
             "productQuantityText",
             "buttonRow"
           ]
-        },
-        "alignment": "start",
-        "distribution": "start"
+        }
       }
     }
   },
@@ -52,7 +50,7 @@
         "children": {
           "explicitList": ["editButton", "deleteButton"]
         },
-        "distribution": "start",
+        "distribution": "center",
         "alignment": "center"
       }
     }

@@ -6,12 +6,7 @@
   align-items: center;
   height: calc(100dvh - vars.$headerHeight);
   flex: 1;
-  width: 70%;
-  margin: 0 auto;
-
-  @include vars.mobile {
-    width: 100%;
-  }
+  width: 100%;
 
   &--initial {
     justify-content: center;
@@ -65,9 +60,12 @@
       min-height: 0;
 
       &-messages {
+        width: 70%;
+        margin: 0 auto;
         padding: vars.get(vars.$padding, sm) 0;
 
         @include vars.mobile {
+          width: 100%;
           padding: vars.get(vars.$padding, sm) vars.get(vars.$padding, md);
         }
       }

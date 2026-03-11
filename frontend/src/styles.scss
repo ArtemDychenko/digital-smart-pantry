@@ -11,6 +11,10 @@ body {
   }
 }
 
+.p-card {
+  @include vars.box-shadow;
+}
+
 .p-button {
   --p-button-outlined-primary-color: #000000;
   --p-button-outlined-primary-border-color: #000000;

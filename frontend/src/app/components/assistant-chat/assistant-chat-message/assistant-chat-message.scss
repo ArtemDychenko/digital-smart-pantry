@@ -2,11 +2,12 @@
 
 .assistant-chat-message {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
   margin: vars.get(vars.$padding, xs) 0;
 
   &--user {
-    justify-content: flex-end;
+    align-items: flex-end;
 
     p-card {
       background-color: #2f4f4f;
@@ -25,5 +26,13 @@
 
   &__a2ui {
     margin-top: vars.get(vars.$padding, sm);
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 320px;
+
+    @include vars.mobile {
+      min-width: 70%;
+    }
   }
 }

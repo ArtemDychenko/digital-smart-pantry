@@ -5,10 +5,10 @@
 >
   <p-card class="assistant-chat-message__card">
     {{ message().text }}
-    @for (entry of ownSurfaces; track entry[0]) {
-      <div class="assistant-chat-message__a2ui">
-        <a2ui-surface [surfaceId]="entry[0]" [surface]="entry[1]" />
-      </div>
-    }
   </p-card>
+  @for (entry of ownSurfaces; track entry[0]) {
+    <div class="assistant-chat-message__a2ui">
+      <a2ui-surface [surfaceId]="entry[0]" [surface]="entry[1]" />
+    </div>
+  }
 </div>

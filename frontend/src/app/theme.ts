@@ -68,7 +68,7 @@ const heading = {
   'typography-fs-n': true,
   'typography-w-500': true,
   'layout-mt-0': true,
-  'layout-mb-2': true,
+  'layout-mb-0': true,
   'color-c-n10': true,
 };
 
@@ -186,7 +186,6 @@ const listItemLight = Styles.merge(listItem, {
 export const theme: Theme = {
   additionalStyles: {
     Card: {
-      'min-width': '320px',
       'border-color': '#999',
     },
     Column: {
@@ -218,23 +217,23 @@ export const theme: Theme = {
   components: {
     AudioPlayer: {},
     Button: {
-      'layout-pt-5': true,
-      'layout-pb-5': true,
-      'layout-pl-7': true,
-      'layout-pr-7': true,
+      'layout-pt-3': true,
+      'layout-pb-3': true,
+      'layout-pl-5': true,
+      'layout-pr-5': true,
       'border-br-16': true,
       'border-bw-1': true,
       'border-bs-s': true,
       'color-bgc-p30': true,
       'color-c-n100': true,
-      'behavior-ho-70': true,
+      'behavior-ho-90': true,
     },
     Card: {
       'border-br-4': true,
       'color-bgc-p100': true,
       'color-bc-n90': true,
       'border-bw-1': true,
-      'border-bs-s': true,
+      'border-bs-s': false,
       'layout-pt-6': true,
       'layout-pb-6': true,
       'layout-pl-5': true,
@@ -336,8 +335,8 @@ export const theme: Theme = {
       element: {},
     },
     Row: {
-      'layout-g-4': true,
-      'layout-mb-3': true,
+      'layout-g-6': true,
+      'layout-mb-3': false,
     },
     Slider: {
       container: {},
@@ -381,7 +380,7 @@ export const theme: Theme = {
       },
       h3: {
         'typography-f-sf': true,
-        'typography-ta-c': true,
+        'typography-ta-l': true,
         'typography-v-r': true,
         'typography-w-500': true,
         'layout-mt-0': true,
