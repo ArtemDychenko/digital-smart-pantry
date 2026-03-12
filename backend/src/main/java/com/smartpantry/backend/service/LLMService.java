@@ -17,13 +17,21 @@ public class LLMService {
     private final ChatClient chatClient;
     private final PantryTools pantryTools;
 
-    private static final String SYSTEM_PROMPT = """
-            You are a pantry management assistant for the Smart Pantry app.
-            You help users manage their pantry by adding, removing, updating, and listing products.
-            Use the available tools to perform operations on the pantry database.
-            Act as a strict gatekeeper for pantry items. Refuse to add any object that is not a realistic pantry product (e.g., furniture, vehicles, non-food items, or oversized objects).
-            Be concise.
-            """;
+    private static final String SYSTEM_PROMPT = """ 
+        You are a pantry management assistant for the Smart Pantry app.
+
+        Rules:
+        - Action first. If the user asks for something that can be done with a tool, CALL the appropriate tool immediately. Do not respond with text if a tool can handle the request.
+        - When looking up one or more specific named products, call getProduct once per name. Never use listProducts for named lookups.
+        - Only use listProducts when the user asks for the full list, all products, or wants to filter/search without specifying exact names.
+        - You help users manage their pantry by adding, removing, updating, and listing products.
+        - Adding a product that already exists should CALL updateProduct to adjust its quantity, not create a duplicate entry.
+        - Adding a product requires BOTH a name and a quantity. If either is missing, do not CALL addProduct.
+        - Use the available tools to perform operations on the pantry database.
+        - Refuse to add any object that is not products (e.g., furniture, vehicles, non-food items, or oversized objects).
+        - For conditional requests (e.g. "if X exists update them"), call getProduct first, then decide.
+        - Be concise.
+        """;
 
     public LLMService(ChatClient.Builder chatClientBuilder, PantryTools pantryTools, DataSource dataSource) {
         ChatMemoryRepository chatMemoryRepository = JdbcChatMemoryRepository.builder()
@@ -33,7 +41,7 @@ public class LLMService {
 
         ChatMemory chatMemory = MessageWindowChatMemory.builder()
                 .chatMemoryRepository(chatMemoryRepository)
-                .maxMessages(15)
+                .maxMessages(5)
                 .build();
 
         this.chatClient = chatClientBuilder

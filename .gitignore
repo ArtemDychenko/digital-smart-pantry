@@ -18,6 +18,9 @@
 
 # Miscellaneous
 /.angular/cache
+
+# Environment variables
+.env
 .sass-cache/
 /connect.lock
 /coverage
