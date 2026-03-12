@@ -5,7 +5,7 @@ A system for tracking food inventory via a traditional list interface or an AI c
 ## Features
 - **Pantry Management** — full CRUD operations via a REST API and an interactive drawer-based table UI
 - **AI Chat Assistant** — converse with an LLM to look up, add, update, or delete pantry products using natural language
-- **Interactive UI Cards** — the assistant renders rich product cards (powered by A2UI) with live quantity display directly in the chat
+- **Interactive UI Cards** — the assistant renders rich product cards (powered by [A2UI](https://a2ui.org/)) with live quantity display directly in the chat
 - **Real-time Streaming** — LLM responses are streamed via Server-Sent Events (SSE) for instant feedback with a status indicator
 - **Chat Memory** — chat history is persisted per session using JDBC-backed conversation memory, enabling multi-turn context-aware interactions
 - **Tool Calling** — the assistant uses Spring AI tool annotations to automatically invoke pantry operations (add, update, delete, get, list) based on user intent
@@ -69,4 +69,4 @@ Once all services are healthy, open [http://localhost:8080](http://localhost:808
 ## Usage
 
 - **Right slide-out panel** — browse, add, edit, and delete products via the table interface
-- **Home page** — type a message to the AI assistant (e.g., _"Add 12 Eggs to my pantry."_ or _"How many Apples do I have?"_) and interact with the returned products cards
+- **Home page** — type a message to the AI assistant (e.g. _"Add 12 Eggs to my pantry."_ or _"How many Apples do I have?"_) and interact with the returned products cards
