@@ -17,7 +17,7 @@ A system for tracking food inventory via a traditional list interface or an AI c
 | -------- | ---------------------------------- |
 | Frontend | Angular 21, PrimeNG, TypeScript    |
 | Backend  | Spring Boot 3.5, Gradle            |
-| Database | PostgreSQL 18                      |
+| Database | PostgreSQL 17                      |
 | LLM      | Ollama with Qwen 2.5 3B, Spring AI |
 | Proxy    | Nginx                              |
 
